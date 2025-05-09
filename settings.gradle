@@ -1,0 +1,3 @@
+rootProject.name = 'jtimebomb'
+include 'jtimebomb-annotations', 'jtimebomb-processor'
+
