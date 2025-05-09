@@ -1,4 +1,8 @@
 # JTimeBomb
+
+[![Java CI with Gradle](https://github.com/JulWas797/JTimeBomb/actions/workflows/gradle.yml/badge.svg)](https://github.com/JulWas797/JTimeBomb/actions/workflows/gradle.yml)
+![GitHub top language](https://img.shields.io/github/languages/top/JulWas797/JTimeBomb)
+
 Protect your Java code with expiration dates.
 
 ### Why?
