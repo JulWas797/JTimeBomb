@@ -5,7 +5,6 @@ import net.bytebuddy.description.annotation.AnnotationDescription;
 import net.bytebuddy.implementation.FixedValue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Modifier;
@@ -37,9 +36,9 @@ class TimeBombTest {
     }
 
     @Test
-    @DisplayName("Assure the annotations are applied correctly")
     void annotationTest() {
         Assertions.assertTrue(() -> Arrays.stream(clazz.getMethods()).anyMatch(
-                method -> method.isAnnotationPresent(TimeBomb.class)));
+                method -> method.isAnnotationPresent(TimeBomb.class)),
+                "Annotations should be applied correctly!");
     }
 }

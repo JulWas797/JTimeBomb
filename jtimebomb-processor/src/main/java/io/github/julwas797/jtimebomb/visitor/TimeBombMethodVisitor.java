@@ -110,7 +110,7 @@ public class TimeBombMethodVisitor extends MethodVisitor {
 
         mv.visitMethodInsn(
                 INVOKEVIRTUAL,
-                "ava/time/LocalDateTime",
+                "java/time/LocalDateTime",
                 "isBefore",
                 "(Ljava/time/chrono/ChronoLocalDateTime;)Z",
                 false

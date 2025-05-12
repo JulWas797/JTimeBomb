@@ -2,3 +2,4 @@
 /.gradle/
 /jtimebomb-processor/build/
 /jtimebomb-processor/build/classes/java/main/
+/.idea/

@@ -130,7 +130,6 @@ bytecode obfuscate tools include
 
 ### Plans
 
-- [ ] **Implement proper testing for the processor**
 - [ ] **Obtain the date by an NTP server**
 - [ ] **Make a Gradle plugin**
 - [ ] Implement other types of time-bombs
