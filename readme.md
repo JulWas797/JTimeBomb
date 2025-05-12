@@ -131,7 +131,7 @@ bytecode obfuscate tools include
 ### Plans
 
 [//]: # (- [ ] **Implement proper testing for the processor**)
-- [ ] **Obtain the date by an NTP server**
+- [x] ~~Obtain the date by an NTP server~~ (Users can define a custom method to call their own `LocalDateTime` provider)
 - [ ] Make a Gradle plugin
 - [ ] Implement other types of time-bombs
 - [ ] Incremental time-bombing (calculate time-delta at the time of processing)

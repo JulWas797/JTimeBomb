@@ -17,6 +17,7 @@ public class TimeBombMethodVisitor extends MethodVisitor {
     private boolean process = false;
     private String message;
     private LocalDateTime time;
+    private String timeMethod;
 
     protected TimeBombMethodVisitor(int api, MethodVisitor methodVisitor) {
         super(api, methodVisitor);
@@ -45,6 +46,10 @@ public class TimeBombMethodVisitor extends MethodVisitor {
                             case "message":
                                 log.info("With message: {}", sValue);
                                 message = sValue;
+                                break;
+                            case "timeMethod":
+                                log.info("With timeMethod: {}", sValue);
+                                timeMethod = sValue;
                                 break;
                             default:
                                 log.warn("Unknown option found in the annotation: {}", name);
@@ -100,10 +105,19 @@ public class TimeBombMethodVisitor extends MethodVisitor {
         mv.visitVarInsn(ASTORE, 0);
         mv.visitVarInsn(ALOAD, 0);
 
+        var nowClass = "java/time/LocalDateTime";
+        var nowMethod = "now";
+
+        if (timeMethod != null && !timeMethod.isEmpty()) {
+            var split = timeMethod.split(":");
+            nowClass = split[0].replace(".", "/");
+            nowMethod = split[1];
+        }
+
         mv.visitMethodInsn(
                 INVOKESTATIC,
-                "java/time/LocalDateTime",
-                "now",
+                nowMethod,
+                nowClass,
                 "()Ljava/time/LocalDateTime;",
                 false
         );

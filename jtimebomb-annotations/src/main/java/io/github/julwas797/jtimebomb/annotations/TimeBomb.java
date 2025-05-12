@@ -24,4 +24,17 @@ public @interface TimeBomb {
      * @return error message printed upon exiting the JVM.
      */
     String message() default "";
+
+    /**
+     * Define a custom method used for fetching the LocalDateTime..
+     * The method should be accessible (public) and static.
+     * <p>
+     * Syntax is defined as the following-"class:method".
+     * For example, "me.Class:getLocalDateTime".
+     * <p>
+     * Leave blank for the default LocalDateTime.now () approach.
+     *
+     * @return the class and method that should be used for getting LocalDateTime in a syntax: "class:method"
+     */
+    String timeMethod() default "";
 }

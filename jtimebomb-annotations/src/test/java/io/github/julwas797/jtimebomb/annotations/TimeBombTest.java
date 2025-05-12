@@ -21,6 +21,7 @@ class TimeBombTest {
                 .ofType(TimeBomb.class)
                 .define("value", "example")
                 .define("message", "Hello, World!")
+                .define("timeMethod", "me.Test:test")
                 .build();
 
         try (var unloaded = byteBuddy.subclass(Object.class)
