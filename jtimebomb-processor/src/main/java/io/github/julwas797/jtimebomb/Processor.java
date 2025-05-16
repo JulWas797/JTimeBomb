@@ -16,8 +16,7 @@ import java.util.jar.JarOutputStream;
 public class Processor {
     public static void main(String[] args) {
         if (args.length != 2) {
-            //TODO: Better feedback
-            log.error("Not enough arguments. Please refer to the usage guide for more information.");
+            log.error("Not enough arguments. Usage: java -jar jtimebomb-processor.jar <INPUT PATH> <OUTPUT PATH>");
         }
 
         new Processor(args[0], args[1]).process();

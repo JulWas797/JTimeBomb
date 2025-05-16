@@ -13,6 +13,7 @@ import static org.objectweb.asm.Opcodes.*;
 
 public class TimeBombMethodVisitor extends MethodVisitor {
     private static final Logger log = LogManager.getLogger(TimeBombMethodVisitor.class);
+    private static final String LOCAL_DATE_TIME = "java/time/LocalDateTime";
 
     private boolean process = false;
     private String message;
@@ -96,7 +97,7 @@ public class TimeBombMethodVisitor extends MethodVisitor {
 
         mv.visitMethodInsn(
                 INVOKESTATIC,
-                "java/time/LocalDateTime",
+                LOCAL_DATE_TIME,
                 "of",
                 "(IIIIIII)Ljava/time/LocalDateTime;",
                 false
@@ -105,7 +106,7 @@ public class TimeBombMethodVisitor extends MethodVisitor {
         mv.visitVarInsn(ASTORE, 0);
         mv.visitVarInsn(ALOAD, 0);
 
-        var nowClass = "java/time/LocalDateTime";
+        var nowClass = LOCAL_DATE_TIME;
         var nowMethod = "now";
 
         if (timeMethod != null && !timeMethod.isEmpty()) {
@@ -124,7 +125,7 @@ public class TimeBombMethodVisitor extends MethodVisitor {
 
         mv.visitMethodInsn(
                 INVOKEVIRTUAL,
-                "java/time/LocalDateTime",
+                LOCAL_DATE_TIME,
                 "isBefore",
                 "(Ljava/time/chrono/ChronoLocalDateTime;)Z",
                 false
